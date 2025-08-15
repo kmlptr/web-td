@@ -1,0 +1,537 @@
+/* =========================
+   VARIABEL WARNA
+========================= */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --success-color: #27ae60;
+    --danger-color: #e74c3c;
+    --warning-color: #f39c12;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+}
+
+/* =========================
+   RESET & GLOBAL STYLE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0084ffc2;
+    color: #333;
+    line-height: 1.6;
+    padding: 10px;
+}
+
+/* =========================
+   LAYOUT DASAR
+========================= */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    display: fixed;
+    flex-direction: column;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+/* =========================
+   PANEL UMUM
+========================= */
+.panel {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.panel-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+}
+
+.panel-header h2 {
+    font-size: 1.2rem;
+}
+
+.panel-content {
+    padding: 20px;
+}
+
+/* =========================
+   JUDUL
+========================= */
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 50px;
+}
+
+/* =========================
+   MAP PANEL
+========================= */
+.map-panel {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    min-height: 400px;
+    border-radius: 8px;
+}
+
+/* =========================
+   VIDEO PANEL
+========================= */
+.video-panel {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+#cameraStream, #videoStream {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    border-radius: 10px;
+    background: black;
+    object-fit: cover;
+}
+
+/* =========================
+   TELEMETRY PANEL
+========================= */
+.telemetry-panel {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.telemetry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.telemetry-item {
+    background-color: var(--light-color);
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.telemetry-item h3 {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+}
+
+.telemetry-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+.status-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.armed-status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.armed-true {
+    background-color: var(--success-color);
+    color: rgb(255, 255, 255);
+}
+
+.armed-false {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+#vehicleTypeValue {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* =========================
+   CONTROL PANEL
+========================= */
+.control-panel {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.control-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+.control-grid select {
+    grid-column: span 2;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.control-grid button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+.control-grid button:hover {
+    opacity: 0.9;
+}
+
+#setModeBtn {
+    background-color: var(--accent-color);
+}
+
+#armBtn {
+    background-color: var(--danger-color);
+}
+
+#takeoffBtn {
+    background-color: var(--success-color);
+}
+
+#landBtn {
+    background-color: var(--warning-color);
+}
+
+#roverBtn {
+    background-color: var(--secondary-color);
+}
+
+#droneBtn {
+    background-color: var(--primary-color);
+}
+
+/* =========================
+   KONEKSI PANEL
+========================= */
+.connection-controls {
+    display: fixed;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap; /* biar kalau sempit, turun ke baris baru */
+}
+
+.connection-controls select,
+.connection-controls input,
+.connection-controls button {
+    flex: 1; /* biar semua item sama rata lebarnya */
+    min-width: 120px; /* batas minimum supaya tetap kebaca */
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.connection-controls button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.connection-controls button:hover {
+    background-color: #2980b9;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .telemetry-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .control-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .control-grid select {
+        grid-column: span 2;
+    }
+}
+
+/* =========================
+   BUTTON MAP
+========================= */
+.center-map-btn {
+    float: right;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.center-map-btn:hover {
+    background-color: #2980b9;
+}
+
+/* =========================
+   TOGGLE AUTO CENTER
+========================= */
+#toggleAutoCenterBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#toggleAutoCenterBtn:hover {
+    background-color: #0056b3;
+}
+
+
+.navbar {
+    display: flex;
+    gap: 10px;
+    background: #2c3e50;
+    padding: 10px;
+}
+
+.navbar button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar button:hover {
+    background: #2980b9;
+}
+
+
+/* Sidebar Styles */
+body {
+    margin: 0;
+}
+
+.sidebar {
+    background-color: #222;
+    color: white;
+    width: 150px;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    /* Anti zoom */
+    transform-origin: left top;
+    transform: scale(1);
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 3px ;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block; /* hanya selebar teks */
+    padding: 5px 10px; /* jarak atas-bawah 5px, kiri-kanan 10px */
+    font-size: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #444;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.container {
+    margin-left: 150px; /* agar konten tidak ketutup sidebar */
+    padding: 20px;
+    width: calc(100% - 150px);
+}
+
+.sidebar-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #333;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.sidebar-item:hover {
+    background-color: #555;
+}
+
+.sidebar-item.active {
+    background-color: #00e676; /* Warna highlight untuk item aktif */
+    color: #000;
+}
+
+
+
+
+/* Button to start camera */
+
+#startCameraBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#startCameraBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Button to flash */
+#FlashBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;            
+    cursor: pointer;
+}
+
+#FlashBtn:hover {
+    background-color: #c0392b;
+}
+
+/* Container utama Preflight */
+#page-preflight {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 2px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Judul utama Preflight */
+#page-preflight h1 {
+    text-align: center;
+    color: #00e676;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+/* Judul bagian motor */
+#page-preflight h2 {
+    text-align: center;
+    color: #00e676;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Container untuk setiap slider + label */
+.slider-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Label kiri */
+.slider-item label {
+    flex: 0 0 70px; /* lebar tetap untuk label kiri */
+    color: #00e676;
+}
+
+/* Slider tengah */
+.slider-item input[type="range"] {
+    flex: 1;
+    margin: 0 10px;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #00e676, #0091ea);
+    outline: none;
+    transition: background 0.3s;
+}
+
+/* Handle slider */
+.slider-item input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #00e676;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider-item input[type="range"]::-webkit-slider-thumb:hover {
+    background: #00e676;
+    border: 2px solid #fff;
+}
+
+/* Label kanan (persentase) */
+.slider-item .value {
+    flex: 0 0 40px; /* lebar tetap untuk angka persentase */
+    text-align: right;
+    color: #00e676;
+}

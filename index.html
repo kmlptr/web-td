@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Web GCS GPS</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+<h1>GPS Data</h1>
+<p>Lat: <span id="lat">-</span></p>
+<p>Lon: <span id="lon">-</span></p>
+<p>Alt: <span id="alt">-</span></p>
+
+<script>
+const socket = io();
+socket.on('gps_update', data => {
+    document.getElementById('lat').textContent = data.lat?.toFixed(7) ?? '-';
+    document.getElementById('lon').textContent = data.lon?.toFixed(7) ?? '-';
+    document.getElementById('alt').textContent = data.alt?.toFixed(2) ?? '-';
+});
+</script>
+</body>
+</html>
