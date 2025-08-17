@@ -180,6 +180,8 @@ body {
     color: #007bff;
 }
 
+
+
 /* =========================
    CONTROL PANEL
 ========================= */
@@ -236,6 +238,22 @@ body {
 #droneBtn {
     background-color: var(--primary-color);
 }
+
+#safetySwitch{
+    background-color: var(--danger-color);
+}
+/* Default: OFF (merah) */
+#safetySwitch.off {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+/* ON (hijau) */
+#safetySwitch.on {
+    background-color: var(--success-color);
+    color: white;
+}
+
 
 /* =========================
    KONEKSI PANEL
@@ -421,10 +439,10 @@ body {
 }
 
 .sidebar-item.active {
-    background-color: #00e676; /* Warna highlight untuk item aktif */
+    background-color: #00e676;
     color: #000;
+    transform: scale(1.05);
 }
-
 
 
 

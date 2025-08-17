@@ -67,7 +67,7 @@ class GroundControlStation {
             }
         }
 
-        if (this.pathVisible && Date.now() - this.lastMoveTime > 1000) {
+        if (this.pathVisible && Date.now() - this.lastMoveTime > 100) {
             vehiclePath.setStyle({ opacity: 0 });
             this.pathVisible = false;
         }
@@ -104,6 +104,23 @@ class GroundControlStation {
             document.getElementById('toggleAutoCenterBtn').textContent =
                 this.autoCenter ? 'Disable Auto-Center' : 'Enable Auto-Center';
         });
+
+       document.getElementById('safetySwitch').addEventListener('click', () => {
+            const btn = document.getElementById('safetySwitch');
+            this.safetyEnabled = !this.safetyEnabled;
+
+            if (this.safetyEnabled) {
+                btn.textContent = "SAFETY ON";
+                btn.classList.remove("off");
+                btn.classList.add("on");
+            } else {
+                btn.textContent = "SAFETY OFF";
+                btn.classList.remove("on");
+                btn.classList.add("off");
+            }
+        });
+
+
     }
 
     sendCommand(command, params = {}) {

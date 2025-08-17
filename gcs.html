@@ -15,13 +15,14 @@
     <div class="sidebar">
         <h2>Menu</h2>
         <ul>
-            <li><a href="#" onclick="showPage('dashboard'); setActiveSidebar(this)">Flight View</a></li>
-            <li><a href="#" onclick="showPage('preflight'); setActiveSidebar(this)">Preflight Check</a></li>
-            <li><a href="#" onclick="showPage('plan'); setActiveSidebar(this)">Plan</a></li>
-            <li><a href="#" onclick="showPage('setup'); setActiveSidebar(this)">Setup</a></li>
-            <li><a href="#" onclick="showPage('about'); setActiveSidebar(this)">About</a></li>
+            <li><a href="#" class="sidebar-item" onclick="showPage('dashboard'); setActiveSidebar(this)">Flight View</a></li>
+            <li><a href="#" class="sidebar-item" onclick="showPage('preflight'); setActiveSidebar(this)">Preflight Check</a></li>
+            <li><a href="#" class="sidebar-item" onclick="showPage('plan'); setActiveSidebar(this)">Plan</a></li>
+            <li><a href="#" class="sidebar-item" onclick="showPage('setup'); setActiveSidebar(this)">Setup</a></li>
+            <li><a href="#" class="sidebar-item" onclick="showPage('about'); setActiveSidebar(this)">About</a></li>
         </ul>
     </div>
+
 
     <div class="container">
 
@@ -131,6 +132,10 @@
                 <h3>Motor 4</h3>
                 <div class="telemetry-value" id="motor4status">-- %</div>
             </div>
+            <div class="telemetry-item">
+                <h3></h3>
+
+            </div>
             
         </div>
     </div>
@@ -158,6 +163,7 @@
                             <button id="landBtn">Land</button>
                             <button id="roverBtn">Rover</button>
                             <button id="droneBtn">Drone</button>
+                            <button id="safetySwitch" class="btn btn-danger">Safety ON</button>
                         </div>
                     </div>
                 </div>
